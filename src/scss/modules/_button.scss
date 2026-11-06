@@ -1,0 +1,146 @@
+// ==========================================================
+// Variables CSS (couleurs)
+// ==========================================================
+:root {
+  // Primary
+  --primary-bg: #000000;
+  --primary-bg-hover: #333333;
+  --primary-bg-disabled: #bbbbbb;
+  --primary-text: #ffffff;
+
+  // Secondary
+  --secondary-bg: #ffffff;
+  --secondary-bg-hover: #b8bcbf;
+  --secondary-bg-disabled: #ececec;
+  --secondary-text: #000000;
+  --secondary-text-disabled: #b3b3b3;
+
+  // Page
+  --page-bg: #ededef;
+  --dark-bg: #000000;
+}
+
+// ==========================================================
+// Variables / mixins SCSS
+// ==========================================================
+$font-main: "Montserrat", sans-serif;
+$transition:
+  background-color 0.3s ease,
+  color 0.3s ease;
+
+// Mixin pour générer un type de bouton
+@mixin button-variant(
+  $bg,
+  $bg-hover,
+  $bg-disabled,
+  $text,
+  $text-disabled: $text
+) {
+  background-color: $bg;
+  color: $text;
+
+  &:hover {
+    background-color: $bg-hover;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background-color: $bg-disabled;
+    color: $text-disabled;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ==========================================================
+// Base
+// ==========================================================
+html {
+  font-size: 100%; // 16px par défaut, respecte les réglages du navigateur
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: $font-main;
+  background-color: var(--page-bg);
+}
+
+h2 {
+  font-weight: 400;
+  margin: 0 0 1rem;
+}
+
+.section {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  &--dark {
+    background-color: var(--dark-bg);
+
+    h2 {
+      color: var(--primary-text);
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+// ==========================================================
+// Bouton (fonctionne avec <button> et <a>)
+// ==========================================================
+.btn {
+  // Reset pour que <button> et <a> aient le même rendu
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  // Typographie (unités relatives)
+  font-family: $font-main;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.2;
+
+  // Taille par défaut : la largeur dépend du contenu
+  padding: 1.25rem 2.25rem;
+  border-radius: 1.75rem;
+
+  // Transition
+  transition: $transition;
+
+  // --- Types ---
+  &--primary {
+    @include button-variant(
+      var(--primary-bg),
+      var(--primary-bg-hover),
+      var(--primary-bg-disabled),
+      var(--primary-text)
+    );
+  }
+
+  &--secondary {
+    @include button-variant(
+      var(--secondary-bg),
+      var(--secondary-bg-hover),
+      var(--secondary-bg-disabled),
+      var(--secondary-text),
+      var(--secondary-text-disabled)
+    );
+  }
+
+  // --- Taille small ---
+  &--small {
+    font-size: 1.125rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.125rem;
+  }
+}

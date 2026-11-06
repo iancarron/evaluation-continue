@@ -1,14 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <title>eikon parcel starter</title>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boutons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="scss/main.scss" />
   </head>
   <body>
-    <h1>Hello world</h1>
+    <section class="section">
+      <h2>Primary</h2>
+      <div class="row">
+        <button class="btn btn--primary">Label</button>
+        <a href="#" class="btn btn--primary">Label</a>
+        <button class="btn btn--primary" disabled>Label</button>
+        <a href="#" class="btn btn--primary" aria-disabled="true">Label</a>
+      </div>
+      <div class="row">
+        <button class="btn btn--primary btn--small">Label</button>
+        <a href="#" class="btn btn--primary btn--small">Label</a>
+        <button class="btn btn--primary btn--small" disabled>Label</button>
+        <a href="#" class="btn btn--primary btn--small" aria-disabled="true"
+          >Label</a
+        >
+      </div>
+    </section>
 
-    <script src="js/main.js" type="module"></script>
+    <section class="section section--dark">
+      <h2>Secondary</h2>
+      <div class="row">
+        <button class="btn btn--secondary">Label</button>
+        <a href="#" class="btn btn--secondary">Label</a>
+        <button class="btn btn--secondary" disabled>Label</button>
+        <a href="#" class="btn btn--secondary" aria-disabled="true">Label</a>
+      </div>
+      <div class="row">
+        <button class="btn btn--secondary btn--small">Label</button>
+        <a href="#" class="btn btn--secondary btn--small">Label</a>
+        <button class="btn btn--secondary btn--small" disabled>Label</button>
+        <a href="#" class="btn btn--secondary btn--small" aria-disabled="true"
+          >Label</a
+        >
+      </div>
+    </section>
   </body>
 </html>
